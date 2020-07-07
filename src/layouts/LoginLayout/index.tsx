@@ -1,15 +1,17 @@
 import React from 'react';
 import { Row, Col } from 'antd';
 
-const LoginLayout = () => {
+interface LoginLayoutProps {
+  children?: React.ReactNode
+}
+
+const LoginLayout = ({ children } : LoginLayoutProps) => {
   return (
     <div className="Login">
       <Row>
-        <Col span={8}>col-8</Col>
         <Col span={8} offset={8}>
-          col-8
+          {children}
         </Col>
-        <Col span={8}>col-8</Col> 
       </Row>
     </div>
   )

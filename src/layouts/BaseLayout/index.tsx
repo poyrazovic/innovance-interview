@@ -1,8 +1,17 @@
 import React from 'react';
-import { Row, Col } from 'antd';
+import Header from '@/components/Header';
 
-const BaseLayout = () => {
-  return <h1>Dashboard</h1>
+interface BaseLayoutProps {
+  children: React.ReactNode
+}
+
+const BaseLayout = ({ children } : BaseLayoutProps) => {
+  return (
+    <div className="BaseLayout">
+      <Header />
+      {children}
+    </div>
+  )
 };
 
 export default BaseLayout;

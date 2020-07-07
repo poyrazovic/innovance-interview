@@ -1,20 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Row, Col} from 'antd';
 import './index.less';
 import * as serviceWorker from './serviceWorker';
-import { Router } from './config/router';
+import Routes from './config/route';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <Row gutter={30}>
-      <Col span={8} offset={8}>
-        deneme
-      </Col>
-    </Row>
-    <Router />
-  </React.StrictMode>,
-  document.getElementById('root')
+ReactDOM.render(<Routes />, document.getElementById('root')
 );
 
 serviceWorker.unregister();
