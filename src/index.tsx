@@ -3,8 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.less';
 import * as serviceWorker from './serviceWorker';
 import Routes from './config/route';
+import { BrowserRouter } from 'react-router-dom';
 
-ReactDOM.render(<Routes />, document.getElementById('root')
+ReactDOM.render(
+  <BrowserRouter>
+    <Routes />
+  </BrowserRouter>,
+  document.getElementById('root')
 );
 
 serviceWorker.unregister();

@@ -1,8 +1,10 @@
 import React from 'react';
-import { Switch, BrowserRouter, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import BaseLayout from '@/layouts/BaseLayout';
 import LoginLayout from '@/layouts/LoginLayout';
 import { Login, Dashboard, About } from '@/containers';
+
+const page404 = () => <h1>404!</h1>;
 
 const Routes = () => {
   if (!JSON.parse(localStorage.getItem('auth'))) {
@@ -10,25 +12,21 @@ const Routes = () => {
 
     return (
       <LoginLayout>
-        <BrowserRouter>
-          <Switch>
-            <Route exact={true} path="/" component={Login} />
-            <Route path="**" render={() => <h1>404!</h1>} />
-          </Switch>
-        </BrowserRouter>
+        <Switch>
+          <Route path="/" component={Login} />
+          <Route path="**" render={page404} />
+        </Switch>
       </LoginLayout>
     )
   }
 
   return (
     <BaseLayout>
-      <BrowserRouter>
-        <Switch>
-          <Route exact={true} path="/" component={Dashboard} />
-          <Route exact={true} path="/about" component={About} />
-          <Route path="**" render={() => <h1>404!</h1>} />
-        </Switch>
-      </BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={Dashboard} />
+        <Route exact path="/about" component={About} />
+        <Route path="**" render={page404} />
+      </Switch>
     </BaseLayout>
   )
 }

@@ -12,3 +12,14 @@ export const hexToRgb = hex => {
       ${parseInt(result[3], 16)}`
     : null;
 };
+
+export const responseMessages = (type, messages) => {
+  if (messages) {
+    messages.map(message => {
+      return notification[type]({
+        message: message.Message || 'Hata!',
+        description: message.Description
+      });
+    });
+  }
+};
