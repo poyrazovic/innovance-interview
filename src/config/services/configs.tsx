@@ -10,7 +10,7 @@ const configs = {
     loaderTimeout: 1000
   },
   production: {
-    api: '',
+    api: 'https://pokeapi.co/api/v2',
     loaderTimeout: 1000
   }
 }[env];
